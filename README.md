@@ -13,7 +13,7 @@
 
 ## Project summary (<300 words)
 Describe the overall aim of your project and what you have achieved.
-This project aims to build a genome scale metabolic (GSM) model of the emerging cell factory, Vibrio natriegens. The draft GSM is constructed using carveme and further improved by validating it with experimental data. Beta-carotene production is added as a heterologous pathway for the GSM of V. natriegens. The model is subsequently used to predict the theoretical maximum yields of beta-carotene in V. natriegens, and different process conditions are assessed by plotting and analyzing phenotypic phase planes.  
+This project aims to build a genome-scale model (GSM) of the emerging cell factory, Vibrio natriegens. The draft GSM is constructed using carveme and further improved by validating it with experimental data found in literature. Beta-carotene production is added as a heterologous pathway for the GSM of V. natriegens. The model is subsequently used to predict the theoretical maximum yields of beta-carotene in V. natriegens, and different process conditions are assessed by plotting and analyzing phenotypic phase planes.  
 
 ## Project overview
 Describe how your project is organized ...
