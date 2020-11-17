@@ -46,10 +46,9 @@
    "metadata": {},
    "source": [
     "The natural product beta carotene is terpenoid that are naturally produced in fungi, plant and fruits. It is a colored red-orange pigment by which is it often used for food coloring in the food and beverage industry. It is also used for natural cosmetic products and besides being a pigment, it is also the most common source for provitamin A. The production of vitamin A is of interesting because vitamin A has multiple functions in the body, such as vision and the immune system. To express beta carotene in Vibrio natriegens, the beta carotene pathway from Vibrio campbellii and the mevalonate (MVA) biosynthetic pathway from the Gram-positive bacterium Lactobacillus acidophilus were introduced to get the right precursors. \n",
-    "Vibrio natriegens already produce the important precursors Isopentenyl pyrophosphate (IPP) and dimethylallyl pyrophosphate (DMAPP) through its upstream methylerythritol 4-phosphate (MEP) pathway, but this product seems to be a bottleneck in the production of beta carotene. To solve this issue, the MVA pathway from Lactobacillus acidophilus is introduced and thereby more IPP is produced. IPP is then used in the beta carotene pathway from Vibrio campbellii to reach the final product. Beta carotene have already been experimentally heterologously expressed in V. natriegens and other microbial chassis with great success. By making a computed V. natriegens cell factory the goal is to increase the production rate of beta carotene by model optimizing (Ellis et al. 2019). The pathways can be seen in Figure 1. **is this the right one?** \n",
+    "Vibrio natriegens already produce the important precursors Isopentenyl pyrophosphate (IPP) and dimethylallyl pyrophosphate (DMAPP) through its upstream methylerythritol 4-phosphate (MEP) pathway, but this product seems to be a bottleneck in the production of beta carotene. To solve this issue, the MVA pathway from Lactobacillus acidophilus is introduced and thereby more IPP is produced. IPP is then used in the beta carotene pathway from Vibrio campbellii to reach the final product. Beta carotene have already been experimentally heterologously expressed in V. natriegens and other microbial chassis with great success. By making a computed V. natriegens cell factory the goal is to increase the production rate of beta carotene by model optimizing (Ellis et al. 2019). The pathways can be seen in figure… **is this the right one?** \n",
     "\n",
     "![alt text](BetaCarotene-pathways.png \"Pathway blablabla\")\n",
-    "*Figure 1*: The beta-carotene pathways **insert figure text**. Figure from Ellis et al. 2019.\n",
     "\n",
     "The market value of beta carotene has increased with the raised awareness of its properties and its health benefits. During the past years there have been an increased demand from the consumers for natural and organic products, which is why many companies have started using beta carotene as ingredients in their products. The global market size of beta carotene was 314.14 billion US dollars in 2020 and the market size is estimated to grow to 380.37 billion US dollars before 2025. In Europe the most preferred dye in food processing is beta carotene and are also sneaking in to the American market as the most preferred dye. Further the Asian market are big contributors to the global beta carotene market, due to the increased use of cosmetics. At the moment the beta carotene industry is dominated by the two companies DSM N.V. and BASF SE. but they are followed by the Danish company Chr. Hansen. The increasing market value as a result of the raising demand seems to keep growing during the next many years. This makes the production of beta carotene interesting and finding a new better production organism can therefore be essential for future beta carotene production (https://www.marketdataforecast.com/market-reports/beta-carotene-market).\n"
    ]
@@ -638,13 +637,8 @@
    "source": []
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
+<<<<<<< HEAD
+=======
    "cell_type": "markdown",
    "metadata": {},
    "source": [
@@ -742,7 +736,12 @@
   {
    "cell_type": "code",
    "execution_count": 47,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true,
+    "jupyter": {
+     "outputs_hidden": true
+    }
+   },
    "outputs": [
     {
      "data": {
@@ -811,7 +810,12 @@
   {
    "cell_type": "code",
    "execution_count": 42,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true,
+    "jupyter": {
+     "outputs_hidden": true
+    }
+   },
    "outputs": [
     {
      "data": {
@@ -1140,6 +1144,7 @@
    ]
   },
   {
+>>>>>>> e6a5c6810c0f0877bbe608f53059ae965b14be68
    "cell_type": "code",
    "execution_count": null,
    "metadata": {},
@@ -1171,7 +1176,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "jupyter": {
+     "source_hidden": true
+    }
+   },
    "source": [
     "In this work, a genome-scale model of *V. natriegens* has been constructed. The GSM was validated with experimental data from the literature to improve the model and its predictions. **(Achieving the experimental flux of biomass in the GSM was not completely achieved. The GSM predicted a growth rate of ... while experimental studies report a growth rate of ...)**.  The model was evaluated using memote which showed that the constructed GSM **is so and so good**. As a proof-of-concept, a heterologous pathway for beta-carotene was inserted in the model. Beta-carotene has previously been heterologously expressed in *V. natreigens*, and expression was also succesful in the constructed GSM **Yes?**. **The GSM predicted a theoretical yield of ... beta-carotene in *V. natriegens*. Is this good for production of beta-carotene?**"
    ]
