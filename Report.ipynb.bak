@@ -1,0 +1,1236 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Construction of GSM for *Vibrio natriegens* and production of beta-carotene"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 1. Introduction"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 1.1 Literature review of the cell factory (*V. natriegens*)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The fast-growing marine *Vibrio natriegens* is an emerging synthetic biology chassis and a promising candidate for an industrial cell factory. The bacterium possesses many desirable qualities for a cell factory making it interesting for industrial application. This includes a high growth and substrate uptake rate, metabolic diversity, genetic tractability, and tolerance against high salinity (Hoff et al. 2020). These properties could remarkably decrease production expenses and thus increase profits. *V. natriegens* belongs to the class of gammaproteobacteria, just like *E.coli*, and provides a very promising alternative to this commonly used industrial workhorse. \n",
+    "\n",
+    "The high growth rate of *V. natriegens* makes it highly interesting as a commercial cell factory. *V. natriegens* is reported to have the highest growth rate hitherto observed in a non-pathogenetic organism and has a generation time of less than 10 minutes (Hoffart et al. 2017). In comparison, the growth rate for *E. coli* is usually 15-20 minutes. This trait could prove very timesaving and speed up the Design, Build, Test, and Learn (DBTL) cycle for the cell factory development (Eichmann et al. 2019).\n",
+    "\n",
+    "The metabolic diversity and requirement of high salinity of *V. natriegens* offers a remarkable potential to decrease the production costs. In industrial fermentation, the cost of water is a significant expense. *V. natriegens* is ubiquitous in the marine environment and thus thrive in high salinity. This means that seawater can be used in the fermentation process for *V. natriegens* and thus significantly reducing the expense of water. Furthermore, the marine bacterium has a high metabolic diversity and can utilize a wide range of substrates including cheap substrates such as sucrose and glycerol (Hoffart et al. 2017; Ellis et al. 2019). Using *V. natriegens* as a cell factory could thus prove very economically favorable.\n",
+    "\n",
+    "There are currently several established molecular biology techniques for *V. natriegens* including electroporation, conjugation, and CRIPSPR-Cas9 (Hoff et al. 2020). Recent studies have revealed that many methods and tools for production in *E. coli* can be applied in *V. natriegens* (Tschirhart et al. 2019; Eichmann et al. 2019). The codon usage in the two organisms are fairly similar (Hoff et al. 2020). A recent study investigated how well genetic components commonly used for *E. coli* work in *V. natriegens* (Tschirhart et al. 2019). This revealed that many of the synthetic biology tools can also be applied in the fast-growing vibrio. It has been suggested that *E. coli* tools and protocols could be a good starting point for developing more tools for *V. natriegens* (Hoff et al. 2020). This signifies that tools and methods for *V. natriegens* can hopefully be expeditiously developed for the optimization of *V. natriegens* as a cell factory.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 1.2 Literature review of the compound (beta-carotene)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The natural product beta carotene is terpenoid that are naturally produced in fungi, plant and fruits. It is a colored red-orange pigment by which is it often used for food coloring in the food and beverage industry. It is also used for natural cosmetic products and besides being a pigment, it is also the most common source for provitamin A. The production of vitamin A is of interesting because vitamin A has multiple functions in the body, such as vision and the immune system. To express beta carotene in Vibrio natriegens, the beta carotene pathway from Vibrio campbellii and the mevalonate (MVA) biosynthetic pathway from the Gram-positive bacterium Lactobacillus acidophilus were introduced to get the right precursors. \n",
+    "Vibrio natriegens already produce the important precursors Isopentenyl pyrophosphate (IPP) and dimethylallyl pyrophosphate (DMAPP) through its upstream methylerythritol 4-phosphate (MEP) pathway, but this product seems to be a bottleneck in the production of beta carotene. To solve this issue, the MVA pathway from Lactobacillus acidophilus is introduced and thereby more IPP is produced. IPP is then used in the beta carotene pathway from Vibrio campbellii to reach the final product. Beta carotene have already been experimentally heterologously expressed in V. natriegens and other microbial chassis with great success. By making a computed V. natriegens cell factory the goal is to increase the production rate of beta carotene by model optimizing (Ellis et al. 2019). The pathways can be seen in figure… **is this the right one?** \n",
+    "\n",
+    "![alt text](BetaCarotene-pathways.png \"Pathway blablabla\")\n",
+    "\n",
+    "The market value of beta carotene has increased with the raised awareness of its properties and its health benefits. During the past years there have been an increased demand from the consumers for natural and organic products, which is why many companies have started using beta carotene as ingredients in their products. The global market size of beta carotene was 314.14 billion US dollars in 2020 and the market size is estimated to grow to 380.37 billion US dollars before 2025. In Europe the most preferred dye in food processing is beta carotene and are also sneaking in to the American market as the most preferred dye. Further the Asian market are big contributors to the global beta carotene market, due to the increased use of cosmetics. At the moment the beta carotene industry is dominated by the two companies DSM N.V. and BASF SE. but they are followed by the Danish company Chr. Hansen. The increasing market value as a result of the raising demand seems to keep growing during the next many years. This makes the production of beta carotene interesting and finding a new better production organism can therefore be essential for future beta carotene production (https://www.marketdataforecast.com/market-reports/beta-carotene-market).\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 2. Problem definition (<300 words)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The market for beta-carotene will increase the coming years and therefore a more efficient way of producing the compound can be necessary. By introducing the heterologous pathway for beta-carotene production into the bacterium *V. natriegens* one would have an efficient and fast-growing organism as a cell factory for beta-carotene production.\n",
+    "\n",
+    "Today beta-carotene is mainly produced chemically which can be damaging to the environment. It would therefore have an effect on the climate change mitigation to change a larger part of the chemical produced beta-carotene to bioproduced beta-carotene. One of the reasons it is interesting to introduce the beta-carotene pathway into *V. natriegens* instead of using for example *Yarrowia lipolytica* is that *V. natriegens* has shown good results being cultivated in sea water. This will reduce the use of drinking water significantly and as clean drinking water is a limiting resource it can help the UN with sustainable development goal 6.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 3. Reconstruction of a new GSM for your cell factory host of interest (<1500 words)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from cobra.io import read_sbml_model"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Running diamond for the first time, please wait while we build the internal database...\n",
+      "diamond v0.9.14.115 | by Benjamin Buchfink <buchfink@gmail.com>\n",
+      "Licensed under the GNU AGPL <https://www.gnu.org/licenses/agpl.txt>\n",
+      "Check http://github.com/bbuchfink/diamond for updates.\n",
+      "\n",
+      "#CPU threads: 32\n",
+      "Scoring parameters: (Matrix=BLOSUM62 Lambda=0.267 K=0.041 Penalties=11/1)\n",
+      "Database file: /usr/local/lib/python3.6/dist-packages/carveme/data/input/bigg_proteins.faa\n",
+      "Opening the database file... Permission denied\n",
+      " [0.003801s]\n",
+      "Error: Error opening file /usr/local/lib/python3.6/dist-packages/carveme/data/generated/bigg_proteins.dmnd\n",
+      "Failed to run diamond (wrong arguments).\n",
+      "File exists, skipping.\n"
+     ]
+    }
+   ],
+   "source": [
+    "!carve --refseq GCF_001680045.1 --output Vibrio-natriegens-CCUG16371-LB.xml --gapfill LB --init LB"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Running diamond for the first time, please wait while we build the internal database...\n",
+      "diamond v2.0.4.142 (C) Max Planck Society for the Advancement of Science\n",
+      "Documentation, support and updates available at http://www.diamondsearch.org\n",
+      "\n",
+      "#CPU threads: 32\n",
+      "Scoring parameters: (Matrix=BLOSUM62 Lambda=0.267 K=0.041 Penalties=11/1)\n",
+      "Database input file: /usr/local/lib/python3.6/dist-packages/carveme/data/input/bigg_proteins.faa\n",
+      "Opening the database file... Permission denied\n",
+      " [0s]\n",
+      "Error: Error opening file /usr/local/lib/python3.6/dist-packages/carveme/data/generated/bigg_proteins.dmnd\n",
+      "Failed to run diamond (wrong arguments).\n",
+      "File exists, skipping.\n",
+      "diamond v2.0.4.142 (C) Max Planck Society for the Advancement of Science\n",
+      "Documentation, support and updates available at http://www.diamondsearch.org\n",
+      "\n",
+      "#CPU threads: 32\n",
+      "Scoring parameters: (Matrix=BLOSUM62 Lambda=0.267 K=0.041 Penalties=11/1)\n",
+      "Temporary directory: \n",
+      "Opening the database... No such file or directory\n",
+      " [0s]\n",
+      "Error: Error opening file /usr/local/lib/python3.6/dist-packages/carveme/data/generated/bigg_proteins.dmnd\n",
+      "Failed to run diamond.\n"
+     ]
+    }
+   ],
+   "source": [
+    "!carve --refseq GCF_001680045.1 --output Vibrio-natriegens-CCUG16371-LB-M9.xml --gapfill M9 --init M9\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "modelLB = read_sbml_model('Vibrio-natriegens-CCUG16371-LB.xml')\n",
+    "modelM9 = read_sbml_model('Vibrio-natriegens-CCUG16371-M9.xml')"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "Now, just for some basic information about the model of Vibrio natriegens created from carveme:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Number of reactions: 2596\n",
+      "Number of metabolites: 1671\n",
+      "Number of genes included in the model: 1372\n",
+      "% of genes in model compared to the number of coding genes in Vibrio natrigens(4451 genes): 30.824533812626377\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Number of reactions:\", len(modelLB.reactions))\n",
+    "print(\"Number of metabolites:\", len(modelLB.metabolites))\n",
+    "print(\"Number of genes included in the model:\", len(modelLB.genes))\n",
+    "print(\"% of genes in model compared to the number of coding genes in Vibrio natrigens(4451 genes):\",(len(modelLB.genes)/4451)*100)\n"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "Comparing the two models´ growth rate with the actually growth rate of V. natriegens experimentially determined in minimal- and complex media:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 245,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Maximal growth rate of Vibrio natriegens in LB medium: 4.493034109031009\n",
+      "Maximal growth rate of Vibrio natriegens in M9 medium 0.7428597095114109\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"Maximal growth rate of Vibrio natriegens in LB medium:\", modelLB.optimize().objective_value)\n",
+    "print(\"Maximal growth rate of Vibrio natriegens in M9 medium\", modelM9.optimize().objective_value)"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "Long et al. found (http://production.datastore.cvt.dk/filestore?oid=5a16e6c15010df320456bcb7&targetid=5a16e6c15010df320456bcbb) the specific growth rate of V. natrigens grown as a batch culture in minimal media(M9 media) to be 1.70 1/h (a doubling time of app. 24 min)"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "Long et al. further found, using carbon-13 flux analysis, that V. natriegens had an glucose rate uptake of 21.4 mmol/g_DW/h "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 239,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "-10.0"
+      ]
+     },
+     "execution_count": 239,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "solution = modelM9.optimize()\n",
+    "solution.fluxes.EX_glc__D_e"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "A change in the uptake rate of glucose has to be made:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 240,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "modelc = modelM9.copy()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 251,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.9222026623715291"
+      ]
+     },
+     "execution_count": 251,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "modelc.reactions.EX_glc__D_e.bounds = -21.4,-21.4\n",
+    "(modelc.optimize().objective_value)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 250,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<Solution 0.922 at 0x7feec343f470>\n",
+      "-1000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "with modelc:\n",
+    "    modelc.reactions.EX_glc__D_e.bounds = -1000,-1000\n",
+    "    print(modelc.optimize())\n",
+    "    solution2 = modelc.optimize()\n",
+    "    print(solution2.fluxes.EX_glc__D_e)\n",
+    "    \n"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "**it does not seem to affect the specifc growth more by chaning the flux of glucose uptake to higher values...**"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "So the specific growth rate has been improved to be 0.922 1/h\n",
+    "But it does still not correspond to the actual data found by Long et al.\n",
+    "For further optimization of the specific growth rate of this projects model the uptake rate of oxygen be changed;\n",
+    "Long et. al. found that V. natriegens had an oxygen uptake rate of 28 mmol/g/h.\n",
+    "This project's model on minimal M9 media of V. natriegens has a oxygen uptake rate of 10 mmol/g/h:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "-10.0"
+      ]
+     },
+     "execution_count": 60,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "solution.fluxes.EX_o2_e"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 84,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.9222026623715582"
+      ]
+     },
+     "execution_count": 84,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "modelc.reactions.EX_o2_e.bounds = -28.4, -28.4\n",
+    "modelc.optimize().objective_value"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "no change in the specific growth rate is seen when changing the bounds of oxygen uptake"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "Other observations made by Long et. al. 13-C metabolic flux analysis was:\n",
+    "high glycolytic flux  for:\n",
+    "80 ± 0.5 for phosphoglucose isomerase,\n",
+    "169 ± 1 for glyceraldehyde 3-phosphate dehydrogenase,\n",
+    "a flux of 27 ± 1  via phosphoenolpyruvate carboxylase,\n",
+    "17 ± 1 for citrate synthase,\n",
+    "7 ± 0.4 for α-ketoglutarate dehydrogenase\n",
+    "\n",
+    "Above fluxes have been normalized to\n",
+    "glucose uptake rate of 100(21.4 mmol/g/h)"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "modelc.reactions.PGI = phosphoglucose isomerase = app. 0.8*21.4 mmol/g/h\n",
+    "modelc.reactions.GAPD = glyceraldehyde 3-phosphate dehydrogenase = app. 1.69*21.4 mmol/g/h\n",
+    "modelc.reactions.PPC = Phosphoenolpyruvate carboxylase = app. 0.27*21.4 mmol/g/h\n",
+    "modelc.reactions.MCITS = methylated citrate synthase = app. 0.17*21.4 mmol/g/h\n",
+    "model.reactions.AKGDH = α-ketoglutarate dehydrogenase = app. 0.07*21.4 mmol/g/h"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 147,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "modelc.reactions.PGI.bounds = -0.8*21.4,0.8*21.4\n",
+    "modelc.reactions.GAPD.bounds = -1.69*21.4,1.69*21.4\n",
+    "modelc.reactions.PPC.bounds = -0.17*21.4,0.17*21.4\n",
+    "modelc.reactions.AKGDH.bounds =-0.07*21.4,0.07*21.4"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 148,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0.9222026623715314\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(modelc.optimize().objective_value)"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "By changing the above fluxes to resemble reality did not affect the specific growth rate.\n",
+    "Only the change of glucose uptake rate has affected the specific growth rate in this model grown on M9"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "Additionally, Long et al has found that some pathways are inactive during aerobic growth with glucose as carbon source:\n",
+    "The EntnerDoudoroff pathway (0.6 ± 0.1), the glyoxylate shunt (0.0 ± 0.1), and\n",
+    "gluconeogenesis via phosphoenolpyruvate carboxykinase (0.0 ± 0.3) were all characterised as inactive:"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "The EntnerDoudoroff pathway is an alterntive route in prokaryotes to catabolize glucose to pyruvate; the pathway results in a net yield of 1 ATP, 1 NADH, and 1 NADPH. As opposed the glycolysis has a net yield of 2 ATP and 2 NADH. \n",
+    "Hence, it could be hypothesized that by inactivating The EntnerDoudoroff pathway a higher flow through the glycolysis would occur resulting in a higher specific growth rate perhaps. \n",
+    "6-phosphogluconate dehydratase and 2-keto-3-deoxyphosphogluconate aldolase are two of the key enzymes in the EntnerDoudoroff pathway(Conway et al. 1982) and are therefor deactivated:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 206,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "modelc.reactions.EDA.bounds = 0,0 #deactivation of 2-keto-3-deoxyphosphogluconate aldolase also known as \n",
+    "#2-dehydro-3-deoxy-phosphogluconate aldolase in KEGG"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 207,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[<Reaction EDA at 0x7feeb8d5b780>, <Reaction EDD at 0x7feeb8d5b7b8>]"
+      ]
+     },
+     "execution_count": 207,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "modelc.reactions.query('phosphogluconate','name')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 209,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "modelc.reactions.EDD.bounds = 0,0  #deactivation of 6-phosphogluconate dehydratase"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 216,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0.9222026623715566\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(modelc.optimize().objective_value)"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "The specific growth rate only increase by -2.5202063e-14...\n",
+    "now the other two pathways are deactivated(the glyoxylate shunt, and\n",
+    "gluconeogenesis via phosphoenolpyruvate carboxykinase)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 228,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "modelc.reactions.PPCK.bounds = 0,0 #deactivaring phosphoenolpyruvate carboxykinase\n",
+    "modelc.reactions.ICL.bounds = 0,0 #deactivating the glyoxylate shunt"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 230,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.9222026623715566"
+      ]
+     },
+     "execution_count": 230,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "modelc.optimize().objective_value"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "Visualizing the core metabolism of V. natriegens using an existing map of E. coli"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import escher"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'modelc' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-2-b4c52ade0bb2>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0msolution\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mmodelc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0moptimize\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m: name 'modelc' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "solution = modelc.optimize()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "escher.Builder('e_coli_core.Core metabolism',\n",
+    "               reaction_data=solution.fluxes.to_dict()).display_in_notebook()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+<<<<<<< HEAD
+=======
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 4. Computer-Aided Cell Factory Engineering (<500 words)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The beta-carotene pathway from Vibrio campbellii"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from cobra import Reaction, Metabolite"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Finding missing metabolites: "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[<Metabolite gdp_c at 0x7fce58997668>,\n",
+       " <Metabolite dgdp_c at 0x7fce598013c8>,\n",
+       " <Metabolite bmoco1gdp_c at 0x7fce579baa20>,\n",
+       " <Metabolite bmocogdp_c at 0x7fce579ba8d0>,\n",
+       " <Metabolite gdptp_c at 0x7fce5ba2fe48>,\n",
+       " <Metabolite tagdp__D_c at 0x7fce598e97b8>]"
+      ]
+     },
+     "execution_count": 41,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "modelM9.metabolites.query('gdp','id') ##GPP"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "\n",
+       "        <table>\n",
+       "            <tr>\n",
+       "                <td><strong>Metabolite identifier</strong></td><td>gdp_c</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>Name</strong></td><td>GDP</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>Memory address</strong></td>\n",
+       "                <td>0x07fce58997668</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>Formula</strong></td><td>C10H12N5O11P2</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>Compartment</strong></td><td>C_c</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>In 15 reaction(s)</strong></td><td>\n",
+       "                    PPGPPDP, SADT2, NDPK1, GDPDPK, GK1, NTP3, RNDR2, HMPK4, ADSS, FE2Gabcpp, RNDR2b, CYTDK2, ADK3, URIK2, FE3Gabcpp</td>\n",
+       "            </tr>\n",
+       "        </table>"
+      ],
+      "text/plain": [
+       "<Metabolite gdp_c at 0x7fce58997668>"
+      ]
+     },
+     "execution_count": 37,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "modelM9.metabolites.gdp_c"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "metadata": {
+    "collapsed": true,
+    "jupyter": {
+     "outputs_hidden": true
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[<Metabolite 12ppd__R_c at 0x7fce577852b0>,\n",
+       " <Metabolite ppal_c at 0x7fce589e2e10>,\n",
+       " <Metabolite 12ppd__S_e at 0x7fce589e2b00>,\n",
+       " <Metabolite 12ppd__S_p at 0x7fce589e2780>,\n",
+       " <Metabolite 12ppd__S_c at 0x7fce589e23c8>,\n",
+       " <Metabolite ppi_c at 0x7fce5984d400>,\n",
+       " <Metabolite 34hpp_c at 0x7fce58c709b0>,\n",
+       " <Metabolite 3hpp_c at 0x7fce579e2f28>,\n",
+       " <Metabolite 3hpppn_c at 0x7fce579e2f60>,\n",
+       " <Metabolite dhpppn_c at 0x7fce579e2d30>,\n",
+       " <Metabolite 3hpp_e at 0x7fce579e2b70>,\n",
+       " <Metabolite 3hpp_p at 0x7fce579e2438>,\n",
+       " <Metabolite prpp_c at 0x7fce57e784a8>,\n",
+       " <Metabolite pppi_c at 0x7fce57e7dda0>,\n",
+       " <Metabolite ppa_c at 0x7fce57a09a20>,\n",
+       " <Metabolite ppcoa_c at 0x7fce5bcaeba8>,\n",
+       " <Metabolite udcpp_c at 0x7fce5bc9fb70>,\n",
+       " <Metabolite thmpp_c at 0x7fce588b54e0>,\n",
+       " <Metabolite ppoh_c at 0x7fce5b993160>,\n",
+       " <Metabolite 4ppcys_c at 0x7fce588d8da0>,\n",
+       " <Metabolite pphn_c at 0x7fce57dc5208>,\n",
+       " <Metabolite udcpp_p at 0x7fce57cc3550>,\n",
+       " <Metabolite cpppg3_c at 0x7fce57cc3780>,\n",
+       " <Metabolite pppg9_c at 0x7fce57ce2fd0>,\n",
+       " <Metabolite 25dhpp_c at 0x7fce5bce2550>,\n",
+       " <Metabolite 25drapp_c at 0x7fce5bce2518>,\n",
+       " <Metabolite 6hmhptpp_c at 0x7fce5bce22e8>,\n",
+       " <Metabolite dmpp_c at 0x7fce5bcfafd0>,\n",
+       " <Metabolite ppp9_c at 0x7fce5bbe8860>,\n",
+       " <Metabolite ppgpp_c at 0x7fce5ba2fef0>,\n",
+       " <Metabolite 2h3oppan_c at 0x7fce5ba39e10>,\n",
+       " <Metabolite 2h3opp_c at 0x7fce5ba39eb8>,\n",
+       " <Metabolite ppbng_c at 0x7fce5ba5e550>,\n",
+       " <Metabolite 3hpppn_e at 0x7fce5ba441d0>,\n",
+       " <Metabolite 3hpppn_p at 0x7fce5ba61ac8>,\n",
+       " <Metabolite 2ippm_c at 0x7fce5ba7df98>,\n",
+       " <Metabolite ppco_p at 0x7fce598e3c50>,\n",
+       " <Metabolite ppcr_p at 0x7fce598e3a90>,\n",
+       " <Metabolite ssaltpp_c at 0x7fce598f84a8>,\n",
+       " <Metabolite 4ppan_c at 0x7fce575c4ac8>,\n",
+       " <Metabolite ppap_c at 0x7fce575c8b70>,\n",
+       " <Metabolite ppal_e at 0x7fce575c8390>,\n",
+       " <Metabolite ppal_p at 0x7fce575c6390>,\n",
+       " <Metabolite ppa_p at 0x7fce575c6278>,\n",
+       " <Metabolite ppa_e at 0x7fce575c0ba8>,\n",
+       " <Metabolite pppn_c at 0x7fce574e1748>,\n",
+       " <Metabolite pppn_e at 0x7fce57359cc0>,\n",
+       " <Metabolite pppn_p at 0x7fce57359438>,\n",
+       " <Metabolite udcpp_e at 0x7fce575f3588>,\n",
+       " <Metabolite uppg3_c at 0x7fce56b21e48>]"
+      ]
+     },
+     "execution_count": 47,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "modelM9.metabolites.query('pp','id')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {
+    "collapsed": true,
+    "jupyter": {
+     "outputs_hidden": true
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "\n",
+       "        <table>\n",
+       "            <tr>\n",
+       "                <td><strong>Metabolite identifier</strong></td><td>ppi_c</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>Name</strong></td><td>Diphosphate</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>Memory address</strong></td>\n",
+       "                <td>0x07fce5984d400</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>Formula</strong></td><td>HO7P2;P2HO7</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>Compartment</strong></td><td>C_c</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>In 122 reaction(s)</strong></td><td>\n",
+       "                    AACPS7, GMPS, NTPP4, HEMEOS, DHNAOT4, FACOAL60t2pp, AACPS4, NTPP11, OCTDPS, FACOAL80, ORPT, KDOCT2, DASYN140, ASNS1, DASYN161, ADPT, ARGSS, NTPP6, PPK2r, NAMNPP, THZPSN3, G1PTT, ACS, CBLAT_DELETE, ...</td>\n",
+       "            </tr>\n",
+       "        </table>"
+      ],
+      "text/plain": [
+       "<Metabolite ppi_c at 0x7fce5984d400>"
+      ]
+     },
+     "execution_count": 42,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "modelM9.metabolites.ppi_c"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[<Metabolite h2o_c at 0x7fce64a175f8>]"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "modelM9.metabolites.query('h2o_c','id') "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[<Metabolite h2o2_c at 0x7fce589e39b0>,\n",
+       " <Metabolite o2_c at 0x7fce589e36d8>,\n",
+       " <Metabolite co2_c at 0x7fce589be7f0>,\n",
+       " <Metabolite no2_c at 0x7fce598ccc88>]"
+      ]
+     },
+     "execution_count": 49,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "modelM9.metabolites.query('o2_c','id') #HJÆLP oxygen"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "\n",
+       "        <table>\n",
+       "            <tr>\n",
+       "                <td><strong>Metabolite identifier</strong></td><td>o2_c</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>Name</strong></td><td>O2</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>Memory address</strong></td>\n",
+       "                <td>0x07fce589e36d8</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>Formula</strong></td><td>O2</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>Compartment</strong></td><td>C_c</td>\n",
+       "            </tr><tr>\n",
+       "                <td><strong>In 55 reaction(s)</strong></td><td>\n",
+       "                    PACCOAE, FDMO3_1, DALAOX, PHETHPTOX, GGPTRCO, HPPPNDO, 3HPAOX, FDMO_1, DHCINDO, URIC, ASPO6, FDMO3, DESAT18, ACOADH2, CYTBD2pp, O2tpp, GLYCTO1, 4HOXPACMOF, DESAT16, CATDOX, CYTBO3, FDMO4, CYO1b, 3H...</td>\n",
+       "            </tr>\n",
+       "        </table>"
+      ],
+      "text/plain": [
+       "<Metabolite o2_c at 0x7fce589e36d8>"
+      ]
+     },
+     "execution_count": 51,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "modelM9.metabolites.o2_c"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Reaction 1**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Reaction_1_beta=Reaction('Step1_beta')  # 2 Geranylgeranyl diphosphate <=> Diphosphate + Prephytoene diphosphate\n",
+    "Prephytoene_PP=Metabolite(id='Prephyteoene_pp_c', compartment='c')\n",
+    "Reaction_1_beta.add_metabolites({modelM9.metabolites.gdp_c: -2, #Find navn for GPP\n",
+    "                              Prephytoene_PP: 1, # our newly created metabolites\n",
+    "                              modelM9.metabolites.ppi_c: 1 \n",
+    "                             })"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Reaction 2**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Reaction_2_beta=Reaction('Step2_beta')  # Prephytoene diphosphate <=> Diphosphate + 15-cis-Phytoene\n",
+    "Phytoene=Metabolite(id='Phytoene_c', compartment='c')\n",
+    "Reaction_2_beta.add_metabolites({Prephytoene_PP: -1, #made in reaction 1\n",
+    "                              Phytoene: 1, # our newly created metabolite\n",
+    "                              modelM9.metabolites.ppi_c: 1 #Find navn i tabel\n",
+    "                             })"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Reaction 3**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Reaction_3_beta=Reaction('Step3_beta')  # 15-cis-Phytoene + Acceptor <=> all-trans-Phytofluene + Reduced acceptor\n",
+    "Phytofluene=Metabolite(id='Phytofluene_c', compartment='c')\n",
+    "Reaction_3_beta.add_metabolites({Phytoene: -1, #made in reaction 2\n",
+    "                              Phytofluene: 1 # our newly created metabolite\n",
+    "                             })"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Reaction 4**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Reaction_4_beta=Reaction('Step4_beta')  # all-trans-Phytofluene + Acceptor <=> all-trans-zeta-Carotene + Reduced acceptor\n",
+    "zeta_carotene=Metabolite(id='zeta_carotene_c', compartment='c')\n",
+    "Reaction_4_beta.add_metabolites({Phytofluene: -1, #made in reaction 3\n",
+    "                              zeta_carotene: 1 # our newly created metabolite\n",
+    "                             })"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Reaction 5**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Reaction_5_beta=Reaction('Step5_beta')  # all-trans-zeta-Carotene + Reduced acceptor + Oxygen <=> all-trans-Neurosporene + 2 H2O + Acceptor\n",
+    "neurosporene=Metabolite(id='neurosporene_c', compartment='c')\n",
+    "Reaction_5_beta.add_metabolites({zeta_carotene: -1, #made in reaction 4\n",
+    "                                 modelM9.metabolites.o2_c: -1, \n",
+    "                              neurosporene: 1, # our newly created metabolite\n",
+    "                                modelM9.metabolites.h2o_c: 2 \n",
+    "                             })"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Reaction 6**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Reaction_6_beta=Reaction('Step6_beta')  # all-trans-Neurosporene + Reduced acceptor + Oxygen <=> Lycopene + Acceptor + 2 H2O\n",
+    "Lycopene=Metabolite(id='lycopene_c', compartment='c')\n",
+    "Reaction_6_beta.add_metabolites({neurosporene: -1, #made in reaction 5\n",
+    "                                 modelM9.metabolites.o2_c: -1, \n",
+    "                              Lycopene: 1, # our newly created metabolite\n",
+    "                                 modelM9.metabolites.h2o_c: 2  \n",
+    "                             })"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Reaction 7**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Reaction_7_beta=Reaction('Step7_beta')  # Lycopene <=> gamma-Carotene\n",
+    "Gamma_carotene=Metabolite(id='gamma_carotene_c', compartment='c')\n",
+    "Reaction_7_beta.add_metabolites({Lycopene: -1, #made in reaction 6\n",
+    "                              Gamma_carotene: 1\n",
+    "                             })"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Reaction 8**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Reaction_8_beta=Reaction('Step8_beta')  # gamma-Carotene <=> beta-Carotene\n",
+    "Beta_carotene=Metabolite(id='Beta_carotene_c', compartment='c')\n",
+    "Reaction_8_beta.add_metabolites({Gamma_carotene: -1, #made in reaction 7\n",
+    "                              Beta_carotene: 1\n",
+    "                             })"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 70,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "modelM9.add_reactions([Reaction_1_beta])\n",
+    "modelM9.add_reactions([Reaction_2_beta])\n",
+    "modelM9.add_reactions([Reaction_3_beta])\n",
+    "modelM9.add_reactions([Reaction_4_beta])\n",
+    "modelM9.add_reactions([Reaction_5_beta])\n",
+    "modelM9.add_reactions([Reaction_6_beta])\n",
+    "modelM9.add_reactions([Reaction_7_beta])\n",
+    "modelM9.add_reactions([Reaction_8_beta])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "with modelM9:\n",
+    "    modelM9.objective = modelM9.reactions.Step1_beta\n",
+    "    modelM9.objective = modelM9.reactions.Step2_beta\n",
+    "    modelM9.objective = modelM9.reactions.Step3_beta\n",
+    "    modelM9.objective = modelM9.reactions.Step4_beta\n",
+    "    modelM9.objective = modelM9.reactions.Step5_beta\n",
+    "    modelM9.objective = modelM9.reactions.Step6_beta\n",
+    "    modelM9.objective = modelM9.reactions.Step7_beta\n",
+    "    modelM9.objective = modelM9.reactions.Step8_beta\n",
+    "    print(modelM9.optimize().objective_value)"
+   ]
+  },
+  {
+>>>>>>> e6a5c6810c0f0877bbe608f53059ae965b14be68
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 5. Discussion (<500 words)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Beta-carotene has previously been succesfully expressed in V. natriegens and thus verifies that it is possible. \n",
+    "How much beta-carotene was expressed in the Ellis study?\n",
+    "The beta-carotene production in *V.natriegens* was increased approximately 6-fold in LBv2 rich medium when the MVA pathway from from *Lactobacillus acidophilus* NCFM was introduced (Ellis 2019). **What happened in our model?**. Without the MVA-pathway, the titer of beta-carotene was approximately 0.5 mg/L. When the MVA-pathway was introduced into *V. natriegens*, the titer was almost 3 mg/L (Ellis 2019). The heterologous expression of beta-carotene in *V. natriegens* in this study was meant as a proof-of-concept to investigate if production in this host was possible. The aim was thus not to improve the yield of beta-carotene. For this reason, it will probably be possible to experimentally achieve a higher yield."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 6. Conclusion (<200 words)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "jupyter": {
+     "source_hidden": true
+    }
+   },
+   "source": [
+    "In this work, a genome-scale model of *V. natriegens* has been constructed. The GSM was validated with experimental data from the literature to improve the model and its predictions. **(Achieving the experimental flux of biomass in the GSM was not completely achieved. The GSM predicted a growth rate of ... while experimental studies report a growth rate of ...)**.  The model was evaluated using memote which showed that the constructed GSM **is so and so good**. As a proof-of-concept, a heterologous pathway for beta-carotene was inserted in the model. Beta-carotene has previously been heterologously expressed in *V. natreigens*, and expression was also succesful in the constructed GSM **Yes?**. **The GSM predicted a theoretical yield of ... beta-carotene in *V. natriegens*. Is this good for production of beta-carotene?**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## References"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Conway, T. (1992). The Entner-Doudoroff pathway: history, physiology and molecular biology. FEMS Microbiol. Lett. 103, 1–28. doi:10.1111/j.1574-6968.1992.tb05822.x.\n",
+    "\n",
+    "Eichmann, J., Oberpaul, M., Weidner, T., Gerlach, D., and Czermak, P. (2019). Selection of High Producers From Combinatorial Libraries for the Production of Recombinant Proteins in Escherichia coli and Vibrio natriegens. Front. Bioeng. Biotechnol. 7. doi:10.3389/fbioe.2019.00254.\n",
+    "\n",
+    "Ellis, G. A., Tschirhart, T., Spangler, J., Walper, S. A., Medintz, I. L., and Vora, G. J. (2019). Exploiting the Feedstock Flexibility of the Emergent Synthetic Biology Chassis Vibrio natriegens for Engineered Natural Product Production. Mar. Drugs 17, 679. doi:10.3390/md17120679.\n",
+    "\n",
+    "Hoff, J., Daniel, B., Stukenberg, D., Thuronyi, B. W., Waldminghaus, T., and Fritz, G. (2020). Vibrio natriegens : an ultrafast‐growing marine bacterium as emerging synthetic biology chassis. Environ. Microbiol. 22, 4394–4408. doi:10.1111/1462-2920.15128.\n",
+    "\n",
+    "Hoffart, E., Grenz, S., Lange, J., Nitschel, R., Müller, F., Schwentner, A., et al. (2017). High substrate uptake rates empower Vibrio natriegens as production host for industrial biotechnology. Appl. Environ. Microbiol. 83. doi:10.1128/AEM.01614-17.\n",
+    "\n",
+    "Tschirhart, T., Shukla, V., Kelly, E. E., Schultzhaus, Z., Newringeisen, E., Erickson, J. S., et al. (2019). Synthetic Biology Tools for the Fast-Growing Marine Bacterium Vibrio natriegens. ACS Synth. Biol. 8, 2069–2079. doi:10.1021/acssynbio.9b00176.\n",
+    "\n",
+    "\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "python3.6",
+   "language": "python",
+   "name": "python3.6"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
