@@ -17,5 +17,5 @@ This project aims to build a genome-scale model (GSM) of the emerging cell facto
 
 ## Project overview
 Describe how your project is organized ...
-The report.ipynb notebook contains the main report. In Betacarotene_in_Ecoli.ipynb, the beta-carotene pathway reactions are inserted and production calculated in *E. coli* iML1515 GSM. The Models folder contains the GSM In requirements.txt, all of the packages applied in this project are listed. 
+The report.ipynb notebook contains the main report. In Betacarotene_in_Ecoli.ipynb, the beta-carotene pathway reactions are inserted and production calculated in *E. coli* iML1515 GSM. The Models folder contains the GSMs used in this project. In requirements.txt, all of the packages applied in this project are listed. 
 
