@@ -688,6 +688,11 @@
   },
   {
    "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+=======
    "execution_count": 3,
    "metadata": {
     "collapsed": true,
@@ -824,6 +829,7 @@
      ]
     }
    ],
+>>>>>>> 3946ad27c03b4f1a96c93c4ada0677691b3d3e0f
    "source": [
     "%%time\n",
     "!memote report snapshot --skip test_stoichiometric_consistency \\\n",
