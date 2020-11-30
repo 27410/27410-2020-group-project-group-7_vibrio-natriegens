@@ -1,4 +1,4 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/27410/[27410-2020-group-project-group-7_vibrio-natriegens]/main)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/27410/27410-2020-group-project-group-7_vibrio-natriegens/main)
 
 # 27410 - Group assignment - Group 7 - Vibrio natriegens producing beta-carotene
 
